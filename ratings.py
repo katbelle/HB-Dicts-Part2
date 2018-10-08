@@ -7,21 +7,22 @@ with open(filename) as file:
 	for line in file:
 		line = line.rstrip()
 		info = line.split(":")
-		# how do I put this in restaurant ratings? 
-		
-		restaurant_ratings[info[0]] = int(info[1])
-	# print(sorted(restaurant_ratings))
-	
-	sorted_lst = sorted(restaurant_ratings)
-	
-	for restaurant_name in sorted_lst:
-		print(f"{restaurant_name} is rated at {restaurant_ratings[restaurant_name]}")
-		# if restaurant_name == restaurant_ratings[restaurant_name]:
-		# 	print("YAY")
-		# else:
-		# 	print("Nay")
 
-	# for entry in restaurant_ratings.items():
-	# 	print(f"{entry[0]} is rated at {entry[1]}")
+		#adds each line info to dictionary
+		restaurant_ratings[info[0]] = int(info[1])
+
+	#user input
+	new_restaurant = input("What restaurant would you like to rate?")
+	new_rating = input("Please rate your restaurant on a scale of 1 to 5, 5 is highest.")
+
+	#add to dictionary
+	restaurant_ratings[new_restaurant] = new_rating
+
+	for restaurant, restaurant_rating in sorted(restaurant_ratings.items()):
+		print(f"{restaurant} is rated at {restaurant_rating}")
+
+
+
+
 
 
